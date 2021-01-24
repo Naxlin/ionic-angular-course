@@ -1,0 +1,6 @@
+,
+  "server": {
+    "cleartext": true,
+    "url": "http://localhost:8100",
+    "originalUrl": "http://192.168.56.1:8100"
+  }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Recipe } from './recipe.model';
 
 @Injectable({
@@ -20,6 +21,8 @@ export class RecipesService {
     }
   ];
 
+  recipesChangedEvent = new Subject<Recipe[]>();
+
   constructor() { }
 
   getRecipes() {
@@ -36,5 +39,10 @@ export class RecipesService {
     this.recipes = this.recipes.filter(recipe => {
       return recipe.id !== id;
     });
+    this.recipesChangedEvent.next(this.recipes.slice());
   }
+
+  // addRecipe() {
+    // nothing for now
+  // }
 }
